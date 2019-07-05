@@ -15,8 +15,17 @@ import Foreign.NullOrUndefined (undefined)
 foreign import loadFontImpl :: Fn4 P5 String (Maybe (Effect Unit)) (Maybe (Effect Unit)) Font
 
 -- | [p5js.org documentation](https://p5js.org/reference/#/p5/loadFont)
-loadFont :: P5 -> String -> (Maybe (Effect Unit)) -> (Maybe (Effect Unit)) -> Font
-loadFont p5 path callback onError = runFn4 loadFontImpl p5 path callback onError
+loadFont4 :: P5 -> String -> Maybe (Effect Unit) -> (Maybe (Effect Unit)) -> Font
+loadFont4 p5 path callback onError = runFn4 loadFontImpl p5 path callback onError
+
+-- | [p5js.org documentation](https://p5js.org/reference/#/p5/loadFont)
+loadFont3 :: P5 -> String -> Maybe (Effect Unit) -> Font
+loadFont3 p5 path callback onError = runFn4 loadFontImpl p5 path callback Nothing
+
+-- | [p5js.org documentation](https://p5js.org/reference/#/p5/loadFont)
+loadFont2 :: P5 -> String -> Font
+loadFont2 p5 path callback onError = runFn4 loadFontImpl p5 path Nothing Nothing
+
 
 -- TODO: unsupported: text :: P5 -> UnsupportedProduct(UnsupportedProduct(UnsupportedProduct(UnsupportedProduct(Unsupported(Array)|Boolean)|Number)|Unsupported(Object))|String) -> Number -> Number -> (Maybe Number) -> (Maybe Number) -> (Effect Unit)
 
