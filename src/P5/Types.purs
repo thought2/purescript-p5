@@ -44,6 +44,7 @@ module P5.Types
   , TextAlignHorizAlign(..)
   , TextAlignVertAlign(..)
   , TextStyle(..)
+  , GraphicsOrElementOrImage(..)
   ) where
 
 foreign import data P5 :: Type
@@ -72,6 +73,7 @@ data NumberOrArrayNumberOrColorOrImage = NumberOrArrayNumberOrColorOrImageNumber
 data GraphicsOrImageOrMediaElement = GraphicsOrImageOrMediaElementGraphics Graphics | GraphicsOrImageOrMediaElementImage Image | GraphicsOrImageOrMediaElementMediaElement MediaElement
 data ArrayNumberOrVector = ArrayNumberOrVectorArrayNumber (Array Number) | ArrayNumberOrVectorVector Vector
 data NumberOrArrayNumberOrVector = NumberOrArrayNumberOrVectorNumber Number | NumberOrArrayNumberOrVectorArrayNumber (Array Number) | NumberOrArrayNumberOrVectorVector Vector
+data GraphicsOrElementOrImage = GraphicsOrElementOrImageGraphics Graphics | GraphicsOrElementOrImageElement Element | GraphicsOrElementOrImageImage Image
 
 data CreateCanvasRenderer = CREATE_CANVAS_RENDERER_P2D | CREATE_CANVAS_RENDERER_WEBGL
 data ColorMode = COLOR_MODE_RGB | COLOR_MODE_HSB | COLOR_MODE_HSL

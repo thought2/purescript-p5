@@ -19,8 +19,7 @@ import Data.Maybe (Maybe, maybe)
 import Foreign.NullOrUndefined (undefined)
 
 
-
-foreign import imageImpl :: Fn6 P5 ElementOrImage Number Number (Maybe Number) (Maybe Number) (Effect Unit)
+foreign import imageImpl :: Fn6 P5 GraphicsOrElementOrImage Number Number (Maybe Number) (Maybe Number) (Effect Unit)
 foreign import image2Impl :: Fn10 P5 ElementOrImage Number Number Number Number Number Number (Maybe Number) (Maybe Number) (Effect Unit)
 foreign import imageModeImpl :: Fn2 P5 ImageMode (Effect Unit)
 foreign import noTintImpl :: Fn1 P5 (Effect Unit)
@@ -31,7 +30,7 @@ foreign import tint4Impl :: Fn3 P5 Number (Maybe Number) (Effect Unit)
 foreign import tint5Impl :: Fn5 P5 Number Number Number (Maybe Number) (Effect Unit)
 
 -- | [p5js.org documentation](https://p5js.org/reference/#/p5/image)
-image :: P5 -> ElementOrImage -> Number -> Number -> (Maybe Number) -> (Maybe Number) -> (Effect Unit)
+image :: P5 -> GraphicsOrElementOrImage -> Number -> Number -> (Maybe Number) -> (Maybe Number) -> (Effect Unit)
 image p5 img x y width height = runFn6 imageImpl p5 img x y width height
 
 -- | [p5js.org documentation](https://p5js.org/reference/#/p5/image)
